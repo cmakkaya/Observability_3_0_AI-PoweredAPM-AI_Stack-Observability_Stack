@@ -1,0 +1,132 @@
+# version: '3.8'
+
+networks:
+  monitoring:
+    driver: bridge
+    name: monitoring
+    
+volumes:
+  prometheus_data:
+    name: prometheus_data
+  grafana-data:
+    name: grafana-data
+  loki-data:
+    name: loki-data
+  tempo-data:
+    name: tempo-data
+  otel-data:
+    name: otel-data
+    
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    restart: unless-stopped
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./alert-rules.yml:/etc/prometheus/alert-rules.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=90d'  # retention time
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'   
+    ports:
+      - "9090:9090"
+    networks:
+      - monitoring
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+    networks:
+      - monitoring
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node-exporter
+    restart: unless-stopped
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+      - '--collector.processes'
+    ports:
+      - "9100:9100"
+    networks:
+      - monitoring
+
+  alertmanager:
+    image: prom/alertmanager:latest
+    container_name: alertmanager
+    restart: unless-stopped
+    ports: 
+      - "9093:9093"
+    command:
+      - --config.file=/etc/alertmanager/alert-config.yaml
+    volumes:
+      - ./alert-config.yaml:/etc/alertmanager/alert-config.yaml 
+      - ./alert-email-template.tmpl:/etc/alertmanager/email-template.tmpl:ro
+    networks:
+      - monitoring  
+
+  tempo:
+    image: grafana/tempo:latest
+    container_name: tempo
+    restart: unless-stopped
+    ports:     
+      - "3200:3200"     # Tempo HTTP API 
+      - "4317"  # otlp grpc
+    volumes:
+      - ./tempo.yaml:/etc/tempo.yaml
+      - tempo-data:/tmp/tempo    # compatible with storage path 
+    command: ["-config.file=/etc/tempo.yaml"]
+    networks:
+      - monitoring
+
+            
+  loki:
+    image: grafana/loki:latest
+    container_name: loki
+    restart: unless-stopped
+    ports:
+      - "3100:3100"  # Loki HTTP port
+    volumes:
+      - ./loki-config.yaml:/etc/loki/loki-config.yaml
+      - loki-data:/data/loki 
+    command: -config.file=/etc/loki/loki-config.yaml
+    networks:
+      - monitoring    
+      
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    container_name: otel-collector
+    restart: unless-stopped
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otelcol-contrib/config.yaml
+    command: 
+      - "--config=/etc/otelcol-contrib/config.yaml"
+    environment:
+      - OTELCOL_LOG_LEVEL=debug    # <- We set the log level here
+    ports:
+      - 1888:1888 # pprof extension
+      - 8890:8890 # Prometheus metrics exposed by the Collector
+      - 8889:8889 # Prometheus exporter metrics
+      - 13133:13133 # health_check extension
+      - 4317:4317 # OTLP gRPC receiver
+      - 4318:4318 # OTLP http receiver
+      - 55679:55679 # zpages extension        
+    networks:
+      - monitoring        
