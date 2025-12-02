@@ -10,11 +10,11 @@ In today’s cloud-based world, observability is no longer just about collecting
 
 - [📝Observability 3.0 AI-Powered APM = Claude (cloud-based) / Ollama (self-hosted) + MCP Server + n8n + Prometheus, Grafana, Loki, Tempo, OpenTelemetry, PostgreSQL Exporter, Node Exporter, cAdvisor, Promtail, Alert Manager — A Comprehensive Hands-On Guide for Live Monitoring with LLMs (Large Language Models)](https://cmakkaya.medium.com/observability-3-0-ai-powered-apm-claude-cloud-based-ollama-self-hosted-mcp-server-n8n-monitor-6ea436e271fe?postPublishedType=repub) `happy reading.`
 
-- [📝Introduction Observability 3.0: AI-Powered APM = AI Stack + Observability Stack]() `happy reading.`
+- [📝Introduction Observability 3.0: AI-Powered APM = AI Stack + Observability Stack— A Hands-On Guide (Part-2)](https://cmakkaya.medium.com/introduction-observability-3-0-ai-powered-apm-ai-stack-observability-stack-part-2-33b1d6a262d7?postPublishedType=repub) `happy reading.`
 
-- [📝Observability 3.0: AI-Powered APM = Ollama (self-hosted) + GrafanaToolServer + Observability Stack — A Comprehensive Hands-On Guide for Live Monitoring with LLMs]() `soon.`
+- [📝Observability 3.0: AI-Powered APM = Ollama (self-hosted) + GrafanaToolServer + Observability Stack — A Comprehensive Hands-On Guide for Live Monitoring with LLMs (Part-3)]() `soon.`
 
-- [📝Observability 3.0: AI-Powered APM = Claude (cloud-based) + MCP Server + Observability Stack — A Comprehensive Hands-On Guide for Live Monitoring with LLMs]() `soon.`
+- [📝Observability 3.0: AI-Powered APM = Claude (cloud-based) + MCP Server + Observability Stack — A Comprehensive Hands-On Guide for Live Monitoring with LLMs (Part-4)]() `soon.`
 
 
 
