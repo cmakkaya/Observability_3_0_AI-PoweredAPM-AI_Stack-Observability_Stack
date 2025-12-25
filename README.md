@@ -12,10 +12,9 @@ In today’s cloud-based world, observability is no longer just about collecting
 
 - [📝Introduction Observability 3.0: AI-Powered APM = AI Stack + Observability Stack— A Hands-On Guide (Part-2)](https://cmakkaya.medium.com/introduction-observability-3-0-ai-powered-apm-ai-stack-observability-stack-part-2-33b1d6a262d7?postPublishedType=repub) `happy reading.`
 
-- [📝Observability 3.0: AI-Powered APM = Ollama (self-hosted) + GrafanaToolServer + Observability Stack — A Comprehensive Hands-On Guide for Live Monitoring with LLMs (Part-3)]() `soon.`
-
-- [📝Observability 3.0: AI-Powered APM = Claude (cloud-based) + MCP Server + Observability Stack — A Comprehensive Hands-On Guide for Live Monitoring with LLMs (Part-4)]() `soon.`
-
+- [📝Observability 3.0: AI-Powered APM = Claude (cloud-based) + MCP Server + Observability Stack — A Comprehensive Hands-On Guide for Live Monitoring with LLMs (Part-3)](https://cmakkaya.medium.com/observability-3-0-5d3ccd6d42de?postPublishedType=repub) `happy reading.`
+  
+- [📝Observability 3.0: AI-Powered APM = Ollama (self-hosted) + GrafanaToolServer + Observability Stack — A Comprehensive Hands-On Guide for Live Monitoring with LLMs (Part-4)]() `soon.`
 
 
 ## Hi there, <img src = "https://github.com/cmakkaya/cmakkaya/blob/main/wavehand.gif" width = "40" align="center"> Nice to see you. <img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="40"/>  
