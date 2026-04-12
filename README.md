@@ -37,7 +37,16 @@ I hope they are useful to you.
 - [📝 Developing a Scalable AI Chatbot Using Azure OpenAI (LLM provider), Java Microservices, and MySQL – A Complete Guide.](https://medium.com/@cmakkaya/developing-a-scalable-ai-chatbot-using-azure-openai-llm-provider-java-microservices-and-mysql-6c98839bd051)
 
 
-### 📗 Note-2: If you want to learn more about deploying a Microservices Application with RDS MySQL DB into a Kubernetes Cluster with High Availability, Auto-Healing, Reliability, Auto-Scaling, Monitoring, and Securing, you can read my Medium articles below. 
+### 📗 Note-2: If you want to learn deploying a restaurant web application to the Google Cloud GKE (Kubernetes cluster) using GitHub Actions (for Continuous Integration) and Argo CD (for Continuous Delivery), you can read my Medium articles below:
+
+A powerful combination in the CI/CD world: GitOps (Argo CD)+ Cloud (GCP) + Automation (GitHub Actions). 
+
+- [📝 Argo CD and GitHub Action-1: Running Together to Create The CI/CD Pipeline into Google Cloud GKE.](https://cmakkaya.medium.com/argo-cd-and-github-action-1-running-together-them-to-create-the-ci-cd-pipeline-6baeed39dde7?postPublishedType=repub)
+
+  <img width="1204" height="643" alt="image" src="https://github.com/user-attachments/assets/15fbb480-9ccf-47fb-95bd-ccfa961c41ed" />
+
+
+### 📗 Note-3: If you want to learn more about deploying a Microservices Application with RDS MySQL DB into a Kubernetes Cluster with High Availability, Auto-Healing, Reliability, Auto-Scaling, Monitoring, and Securing, you can read my Medium articles below. 
 
 - [📝 Deploying a Microservices Application with RDS MySQL DB into Kubernetes Cluster With High Availability, Auto-Healing, Reliability, Auto-Scaling, Monitoring, and Securing.](https://cmakkaya.medium.com/deploying-a-microservices-application-with-rds-mysql-db-into-kubernetes-cluster-with-high-818c7c51ab12)
 
